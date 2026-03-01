@@ -1,0 +1,101 @@
+<main class="main">
+
+  <div class="search">
+    <input
+      type="text"
+      name="city"
+      id="city"
+      placeholder="Enter city name"
+      [(ngModel)]="cityInput"
+      (keydown.enter)="loadWeather()"
+    />
+    <button (click)="loadWeather()">Search</button>
+  </div>
+
+  <div class="content">
+
+    <div class="data">
+      <div class="tempToday">
+        <h1>{{ city() }}</h1>
+        <h2>{{ temperature() }}</h2>
+
+        @if (temperatureValue() !== null) {
+          @if (temperatureValue()! > 25) {
+            <img src="hot.png" alt="hot">
+          } @else if (temperatureValue()! > 10) {
+            <img src="mild.png" alt="mild">
+          } @else {
+            <img src="cold.png" alt="cold">
+          }
+        }
+
+        @if (error()) {
+          <p>{{ error() }}</p>
+        }
+
+        @if (loading()) {
+          <p>Wczytywanie danych...</p>
+        }
+      </div>
+
+      <button class="expand" (click)="expandData()"> > </button>
+    </div>
+
+    <div class="DataExpanded">
+      @for (day of forecastDays(); track day.date) {
+        <div class="forecastDay">
+          <p>{{ day.date }}</p>
+          <p>{{ day.temperature }}</p>
+          @switch (day.weather) {
+            @case ('sunny') {
+              <img src="sun.png">
+            }
+            @case ('cloudy') {
+              <img src="cloud.png">
+            }
+            @case ('rain') {
+              <img src="rain.png">
+            }
+            @case ('snow') {
+              <img src="snow.png">
+            }
+            @case ('light snow') {
+              <img src="lightSnow.png">
+            }
+            @case ('overcast clouds') {
+              <img src="overcastClouds.png">
+            }
+            @case ('scattered clouds') {
+              <img src="scatteredClouds.png">
+            }
+            @case ('few clouds') {
+              <img src="fewClouds.png">
+            }
+            @case ('broken clouds') {
+              <img src="brokenClouds.png">
+            }
+            @case ('clear sky') {
+              <img src="clearSky.png">
+            }
+            @case ('light rain') {
+              <img src="lightRain.png">
+            }
+            @case ('moderate rain') {
+              <img src="moderateRain.png">
+            }
+            @case ('storm') {
+              <img src="storm.png">
+            }
+            @default {
+              <p>{{ day.weather }}</p>
+            }
+          }
+        </div>
+      }
+    </div>
+
+  </div>
+
+</main>
+
+<router-outlet />

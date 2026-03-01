@@ -1,0 +1,188 @@
+:host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --french-violet: oklch(47.66% 0.246 305.88);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(95.488% 0.02671 304.721);
+
+    
+
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
+      180deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+      90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --pill-accent: var(--bright-blue);
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .main {
+    height: 100vh;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--electric-violet);
+    padding-left: 10vw;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search {
+    margin-bottom: 2vh;
+    height: 5vh;
+    margin-left: 5vw;
+  }
+
+  .search input {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 9999px;
+    outline: none;
+    width: 15vw;
+    max-width: 100%;
+  }
+
+  .search button {
+    padding: 0.5rem 2rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 9999px;
+    background-color: var(--french-violet);
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+    width: 8vw;
+  }
+
+  .search button:hover {
+    background-color: var(--hot-red);
+  }
+
+  .data {
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: white;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: border-radius 0.3s ease;
+  }
+
+  .tempToday{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+
+  .tempToday h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .tempToday h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .expand{
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 9999px;
+    background-color: var(--french-violet);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    rotate: 0deg;
+    transition: rotate 0.3s ease;
+  }
+
+  .expand:hover {
+    background-color: var(--hot-red);
+  }
+
+    @keyframes slideInFromBottom {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideOutFromBottom {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+  }
+
+  .DataExpanded {
+    height: 50vh;
+    width: 50vw;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: black;
+    background: var(--gray-400);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideInFromBottom 0.4s ease forwards;
+    overflow: hidden;
+  }
+
+  .DataExpanded.hiding {
+    animation: slideOutFromBottom 0.4s ease forwards;
+  }
+
+  .forecastDay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 1rem;
+  }
