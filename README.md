@@ -1,24 +1,30 @@
 # ApiWeather
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+This project was created using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4. with applied Node.js version 24.11.0.
 
 ## Development server
 
-Begin with running backend server with:
+Begin with running backend server:
 
 ```bash
 cd backend
 node index.js
 ```
+
+You might need to add extensions:
+
+```bash
+npm install express cors dotenv
+```
+
 It will start backend that will provide key to call API.
-In console you will get message that server is running on set port, (if you follow that address, there will another address to navigate you to the app).
+In console you will get message that server is running on set port.
 
 All secrets such as apiKey is hidden in .env file. It has structure:
-API_KEY = 'your_api_key' paste your key from: https://rapidapi.com/worldapi/api/open-weather13
+API_KEY = your_api_key paste your key from: https://rapidapi.com/worldapi/api/open-weather13
 PORT = your_port //it has to be number to work, preferably it should be 3000, but you can change it to any number, just don't forget changing port in weather.ts file as otherwise it will not work
-CLIENT_SECRET = 'mysecret'
 
-To start a local development server, run:
+To start a frontend side server, run:
 
 ```bash
 cd frontend
